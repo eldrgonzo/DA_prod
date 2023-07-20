@@ -1,0 +1,29 @@
+﻿@page
+@model DA_prod.Pages.LoginModel
+@{
+
+    <div class="w3-container w3-padding-32 w3-center">
+        <h3>Archivos D.A.</h3><br>
+        <img src="/w3images/da_logo.jpg" alt="Me" class="w3-image" style="display:block;margin:auto" width="400" height="243">
+        <div class="w3-padding-32">
+            <h4><b>Ingresar tus datos</b></h4>
+            <form method="post">
+                        <div class="form-group">
+                            <label asp-for="Modelo.UserName" class="control-label"></label>
+                            <input asp-for="Modelo.UserName" class="form-control" />
+                            <span asp-validation-for="Modelo.UserName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Modelo.Password" class="control-label"></label>
+                            <input asp-for="Modelo.Password" class="form-control" />
+                            <span asp-validation-for="Modelo.Password" class="text-danger"></span>
+                        </div>
+                    <div class=" form-group">
+                        <input type="submit" value="Aceptar" class="btn btn-primary" />
+                        <input type="reset" value="Cancelar" class="btn btn-secondary">
+                    </div>
+            </form>
+        </div>
+    </div>
+
+}

@@ -1,0 +1,112 @@
+﻿@page
+@model DA_prod.Pages.Egresos.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Egresado</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Egresado.FolioInterno)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Egresado.FolioInterno)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Egresado.Nombre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Egresado.Nombre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Egresado.Apellidos)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Egresado.Apellidos)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Egresado.Sexo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Egresado.Sexo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Egresado.Edad)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Egresado.Edad)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Egresado.FechaIngreso)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Egresado.FechaIngreso)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Egresado.FechaEgreso)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Egresado.FechaEgreso)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Egresado.MotivoEgreso)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Egresado.MotivoEgreso)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Egresado.ResumenSalud)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Egresado.ResumenSalud)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Egresado.ProblemaSalud)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Egresado.ProblemaSalud)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Egresado.Tres_meses)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Egresado.Tres_meses)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Egresado.Terapia)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Egresado.Terapia)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Egresado.Sesiones)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Egresado.Sesiones)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Egresado.Salud_optimo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Egresado.Salud_optimo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Egresado.Asistencia_externa)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Egresado.Asistencia_externa)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Egresado.ID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

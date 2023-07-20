@@ -1,0 +1,101 @@
+﻿@page
+@model DA_prod.Pages.Egresos.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:80px">
+    <h1 class="w3-center">Hoja de Egreso</h1>
+    <div class="w3-container w3-padding-32 w3-left" style="margin-bottom:100px">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Egresado.FolioInterno" class="control-label"></label>
+                <input asp-for="Egresado.FolioInterno" class="form-control" />
+                <span asp-validation-for="Egresado.FolioInterno" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Egresado.Nombre" class="control-label"></label>
+                <input asp-for="Egresado.Nombre" class="form-control" />
+                <span asp-validation-for="Egresado.Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Egresado.Apellidos" class="control-label"></label>
+                <input asp-for="Egresado.Apellidos" class="form-control" />
+                <span asp-validation-for="Egresado.Apellidos" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Egresado.Sexo" /> @Html.DisplayNameFor(model => model.Egresado.Sexo)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Egresado.Edad" class="control-label"></label>
+                <input asp-for="Egresado.Edad" class="form-control" />
+                <span asp-validation-for="Egresado.Edad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Egresado.FechaIngreso" class="control-label"></label>
+                <input asp-for="Egresado.FechaIngreso" class="form-control" />
+                <span asp-validation-for="Egresado.FechaIngreso" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Egresado.FechaEgreso" class="control-label"></label>
+                <input asp-for="Egresado.FechaEgreso" class="form-control" />
+                <span asp-validation-for="Egresado.FechaEgreso" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Egresado.MotivoEgreso" class="control-label"></label>
+                <input asp-for="Egresado.MotivoEgreso" class="form-control" />
+                <span asp-validation-for="Egresado.MotivoEgreso" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Egresado.ResumenSalud" class="control-label"></label>
+                <input asp-for="Egresado.ResumenSalud" class="form-control" />
+                <span asp-validation-for="Egresado.ResumenSalud" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Egresado.ProblemaSalud" class="control-label"></label>
+                <input asp-for="Egresado.ProblemaSalud" class="form-control" />
+                <span asp-validation-for="Egresado.ProblemaSalud" class="text-danger"></span>
+            </div><br/>
+            <div class="card-body form-group w3-border w3-round-xlarge w3-hover-border-red">
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Egresado.Tres_meses" /> @Html.DisplayNameFor(model => model.Egresado.Tres_meses)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Egresado.Terapia" /> @Html.DisplayNameFor(model => model.Egresado.Terapia)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Egresado.Sesiones" /> @Html.DisplayNameFor(model => model.Egresado.Sesiones)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Egresado.Salud_optimo" /> @Html.DisplayNameFor(model => model.Egresado.Salud_optimo)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Egresado.Asistencia_externa" /> @Html.DisplayNameFor(model => model.Egresado.Asistencia_externa)
+                </label>
+            </div></div>
+            <br/><br/>
+            <div class="form-group">
+                <input type="submit" value="Registrar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

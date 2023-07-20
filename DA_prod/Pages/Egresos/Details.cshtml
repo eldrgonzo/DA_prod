@@ -1,0 +1,113 @@
+﻿@page
+@model DA_prod.Pages.Egresos.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="w3-main w3-content w3-padding" style="max-width:1000px;margin-top:80px;">
+    <h1 class="w3-center">Hoja de Egreso</h1>
+    <div class="w3-container w3-padding-32 w3-left" style="margin-bottom:100px">
+    <dl class="row">
+            <dt class="col-sm-2">ID</dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Egresado.ID)
+            </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Egresado.FolioInterno)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Egresado.FolioInterno)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Egresado.Nombre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Egresado.Nombre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Egresado.Apellidos)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Egresado.Apellidos)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Egresado.Sexo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Egresado.Sexo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Egresado.Edad)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Egresado.Edad)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Egresado.FechaIngreso)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Egresado.FechaIngreso)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Egresado.FechaEgreso)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Egresado.FechaEgreso)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Egresado.MotivoEgreso)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Egresado.MotivoEgreso)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Egresado.ResumenSalud)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Egresado.ResumenSalud)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Egresado.ProblemaSalud)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Egresado.ProblemaSalud)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Egresado.Tres_meses)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Egresado.Tres_meses)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Egresado.Terapia)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Egresado.Terapia)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Egresado.Sesiones)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Egresado.Sesiones)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Egresado.Salud_optimo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Egresado.Salud_optimo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Egresado.Asistencia_externa)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Egresado.Asistencia_externa)
+        </dd>
+    </dl>
+        <a asp-page="./Edit" asp-route-id="@Model.Egresado?.ID">Editar</a> |
+        <a asp-page="./Index">Regresar</a>
+
+  </div>
+
+   
+</div>

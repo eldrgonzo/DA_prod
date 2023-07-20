@@ -1,0 +1,109 @@
+﻿@page
+@model DA_prod.Pages.Egresos.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    
+}
+
+
+<div class="card">
+    <div class="card-header text-center">
+        <h2 class="display-4">Egresados</h2>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col">
+                <h3>Egresados Recientes</h3>
+            </div>
+            <!-- submenu de navegacion -->
+            <div class="col text-end">
+                <a class="btn btn-primary btn-block text-end" asp-page="Create">
+                    <i class="fa-regular fa-square-plus"></i> Registrar un Egreso
+                </a>
+            </div>
+            <!-- fin de submenu de navegacion -->
+        </div>
+        <br />
+
+        <div class="container">
+            <!-- cuerpo de vistas -->
+            <div class="row">
+                @if (TempData["error"] != null)
+                {
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        @TempData["error"]
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                        </button>
+                    </div>
+                }
+                @if (TempData["mensaje"] != null)
+                {
+                    <div class="alert alert-info alert-dismissible fade show" role="alert">
+                        @TempData["mensaje"]
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                        </button>
+                    </div>
+                }
+                <div class="col-10 border text-center" style="padding:5px; font-size: 11.8px;">
+                    
+                        <form method="post">
+                            <table class="table-responsive table-stripped">
+                                <thread class="thread-dark">
+                                    <tr>
+                                        <th scope="col">@Html.DisplayNameFor(m => m.Modelo.FirstOrDefault().FolioInterno)</th>
+                                        <th scope="col">@Html.DisplayNameFor(m => m.Modelo.FirstOrDefault().Nombre)</th>
+                                        <th scope="col">@Html.DisplayNameFor(m => m.Modelo.FirstOrDefault().Apellidos)</th>
+                                        <th scope="col">@Html.DisplayNameFor(m => m.Modelo.FirstOrDefault().FechaIngreso)</th>
+                                        <th scope="col">@Html.DisplayNameFor(m => m.Modelo.FirstOrDefault().FechaEgreso)</th>
+                                        <th scope="col">@Html.DisplayNameFor(m => m.Modelo.FirstOrDefault().Edad)</th>
+                                        
+                                        <th scope="col">Acciones</th>
+                                    <tr />
+                                </thread>
+                                @foreach (var usuario in Model.Modelo)
+                                {
+                                   
+                                   
+                                    <tr>
+                                        <td>@Html.DisplayFor(m => usuario.FolioInterno)</td>
+                                        <td>@Html.DisplayFor(m => usuario.Nombre)</td>
+                                        <td>@Html.DisplayFor(m => usuario.Apellidos)</td>
+                                        <td>@Html.DisplayFor(m => usuario.FechaIngreso)</td>
+                                        <td>@Html.DisplayFor(m => usuario.FechaEgreso)</td>
+                                        <td>@Html.DisplayFor(m => usuario.Edad)</td>
+                                        <td style="width: auto;">
+                                            <a asp-route-id="@usuario.ID" class="btn btn-sm btn-primary" asp-page="Edit">
+                                                <!--class="btn btn-primary btn-block text-end"-->
+                                                <i class="fa-regular fa-pen-to-square"></i>
+                                            </a>
+                                            <button asp-page-handler="Delete" asp-route-id="@usuario.ID"
+                                                    class="btn btn-sm btn-danger"
+                                                    onclick="return confirm('Estas seguro de borrar a @usuario.Nombre?')">
+                                                <i class="fa-solid fa-user-xmark"></i>
+                                            </button>
+                                            <a asp-route-id="@usuario.ID" class="btn btn-sm btn-primary" asp-page="Details">
+                                                <i class="fa-solid fa-circle-info"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </table>
+                        </form>
+
+
+                    }
+                    else
+                    {
+                        <span class="text-danger">No hay Datos</span>
+                    }
+                </div>
+                
+            </div>
+
+        </div>
+    </div>
+    <div class="card-footer text-center">
+    </div>
+</div>
+</div>

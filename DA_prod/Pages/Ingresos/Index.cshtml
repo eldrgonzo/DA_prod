@@ -1,0 +1,156 @@
+﻿@page
+@model DA_prod.Pages.Ingresos.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    int totalUsuarios = 0;
+    int usuariosRensidentes = 0;
+    int usuariosNuevos = 0;
+}
+
+
+<div class="card">
+    <div class="card-header text-center">
+        <h2 class="display-4">Ingresos</h2>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col">
+                <h3>Lista de Militancia</h3>
+            </div>
+            <!-- submenu de navegacion -->
+            <div class="col text-end">
+                <a class="btn btn-primary btn-block text-end" asp-page="Create">
+                    <i class="fa-regular fa-square-plus"></i> Registrar un Ingreso
+                </a>
+            </div>
+            <!-- fin de submenu de navegacion -->
+        </div>
+        <br />
+
+        <div class="container">
+            <!-- cuerpo de vistas -->
+            <div class="row">
+                @if (TempData["error"] != null)
+                {
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        @TempData["error"]
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                        </button>
+                    </div>
+                }
+                @if (TempData["mensaje"] != null)
+                {
+                    <div class="alert alert-info alert-dismissible fade show" role="alert">
+                        @TempData["mensaje"]
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                        </button>
+                    </div>
+                }
+                <div class="col-10 border text-center" style="padding:5px; font-size: 11.8px;">
+                    @if (Model.Modelo.Count() > 0)
+                    {
+                        totalUsuarios = Model.Modelo.Count();
+                        <form method="post">
+                            <table class="table-responsive table-stripped">
+                                <thread class="thread-dark">
+                                    <tr>
+                                        <th scope="col">@Html.DisplayNameFor(m => m.Modelo.FirstOrDefault().FolioInterno)</th>
+                                        <th scope="col">@Html.DisplayNameFor(m => m.Modelo.FirstOrDefault().Nombre)</th>
+                                        <th scope="col">@Html.DisplayNameFor(m => m.Modelo.FirstOrDefault().Apellidos)</th>
+                                        <th scope="col">@Html.DisplayNameFor(m => m.Modelo.FirstOrDefault().FechaIngreso)</th>
+                                        <th scope="col">@Html.DisplayNameFor(m => m.Modelo.FirstOrDefault().FechaNacimiento)</th>
+                                        <th scope="col">@Html.DisplayNameFor(m => m.Modelo.FirstOrDefault().NombreFamiliar)</th>
+                                        <th scope="col">@Html.DisplayNameFor(m => m.Modelo.FirstOrDefault().Parentesco)</th>
+                                        <th scope="col">@Html.DisplayNameFor(m => m.Modelo.FirstOrDefault().TelefonoFam)</th>
+                                        <th scope="col">@Html.DisplayNameFor(m => m.Modelo.FirstOrDefault().IngresosPrev)</th>
+                                        <th scope="col">Acciones</th>
+                                    <tr />
+                                </thread>
+                                @foreach (var usuario in Model.Modelo)
+                                {
+                                    if (usuario.IngresosPrev > 0)
+                                    {
+                                        usuariosRensidentes++;
+                                    }
+                                    else
+                                    {
+                                        usuariosNuevos++;
+                                    }
+                                   
+                                    <tr>
+                                        <td>@Html.DisplayFor(m => usuario.FolioInterno)</td>
+                                        <td>@Html.DisplayFor(m => usuario.Nombre)</td>
+                                        <td>@Html.DisplayFor(m => usuario.Apellidos)</td>
+                                        <td>@Html.DisplayFor(m => usuario.FechaIngreso)</td>
+                                        <td>@Html.DisplayFor(m => usuario.FechaNacimiento)</td>
+                                        <td>@Html.DisplayFor(m => usuario.NombreFamiliar)</td>
+                                        <td>@Html.DisplayFor(m => usuario.Parentesco)</td>
+                                        <td>@Html.DisplayFor(m => usuario.TelefonoFam)</td>
+                                        <td>@Html.DisplayFor(m => usuario.IngresosPrev)</td>
+                                        <td style="width: auto;">
+                                            <a asp-route-id="@usuario.ID" class="btn btn-sm btn-primary" asp-page="Edit">
+                                                <!--class="btn btn-primary btn-block text-end"-->
+                                                <i class="fa-regular fa-pen-to-square"></i>
+                                            </a>
+                                            <button asp-page-handler="Delete" asp-route-id="@usuario.ID"
+                                            class="btn btn-sm btn-danger"
+                                            onclick="return confirm('Estas seguro de borrar a @usuario.Nombre?')">
+                                                <i class="fa-solid fa-user-xmark"></i>
+                                            </button>
+                                            <a asp-route-id="@usuario.ID" class="btn btn-sm btn-primary" asp-page="Details">
+                                                <i class="fa-solid fa-circle-info"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </table>
+                        </form>
+
+
+                    }
+                    else
+                    {
+                        <span class="text-danger">No hay Datos</span>
+                    }
+                </div>
+                <div class="col-2">
+                    @if (totalUsuarios > 0)
+                    {
+                        <div class="card text-center bg-primary text-white" style="padding: 3px">
+                            <div class="card-header">
+                                <i class="fa-solid fa-users-line"></i> Total de Usuarios
+                            </div>
+                            <div class="card-body">
+                                @totalUsuarios
+                            </div>
+                        </div>
+                        <br />
+                        <div class="card text-center">
+                            <div class="card-body text-primary">
+                                <i class="fa-solid fa-user-injured"></i> Usuarios Rensidentes: @usuariosRensidentes
+                            </div>
+                            <div class="card-footer text-danger">
+                                <i class="fa-solid fa-seedling"></i> Usuarios Nuevos: @usuariosNuevos
+                            </div>
+                        </div>
+                        <br />
+                        <div class="card text-center bg-black text-white">
+                           <!-- <div class="card-header">
+                                <i class="fa-solid fa-sack-dollar"></i> Tienda Total
+                            </div>
+                            <div class="card-body">
+                                #totalTienda
+                             </div>-->
+                        </div>
+                    }
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="card-footer text-center">
+        
+    </div>
+</div>
+</div>
